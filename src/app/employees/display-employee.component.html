@@ -1,0 +1,88 @@
+  <div class='card' (click)="handleClick()">
+      <div class='card-header' [class.bg-primary]="employeeSelectedOptional === employee.id">
+          <div>
+            <h3 class='card-title'>{{employee.name}}</h3>
+          </div>
+      </div>
+      <div class='card-body'>
+        <div>
+          <div class='row vertical-allign'>
+            <div class='col-sm-4'>
+              <img [src]="employee.img_path" class="imageClass">
+            </div>
+            <div class='col-sm-8'>
+              <div class='row'>
+                <div class='col-sm-6'>
+                  Gender
+                </div>
+                <div class='col-sm-6'>
+                  : {{employee.gender}}
+                </div>
+              </div>
+              <div class='row'>
+                <div class='col-sm-6'>
+                  Date of birth
+                </div>
+                <div class='col-sm-6'>
+                  : {{employee.date_of_birth | date}}
+                </div>
+              </div>
+              <div class='row'>
+                <div class='col-sm-6'>
+                  Contact preference
+                </div>
+                <div class='col-sm-6'>
+                  : {{employee.contact_preference}}
+                </div>
+              </div>
+              <div class='row'>
+                <div class='col-sm-6'>
+                  Phone
+                </div>
+                <div class='col-sm-6'>
+                  : {{employee.phone_number}}
+                </div>
+              </div>
+              <div class='row'>
+                <div class='col-sm-6'>
+                  Email
+                </div>
+                <div class='col-sm-6'>
+                  : {{employee.email}}
+                </div>
+              </div>
+              <div class='row'>
+                <div class='col-sm-6'>
+                  Department
+                </div>
+                <div [ngSwitch]="employee.department">
+                  <div *ngSwitchCase="1">: Action </div>
+                  <div *ngSwitchCase="2">: Commedy </div>
+                  <div *ngSwitchCase="3">: Horror </div>
+                  <div *ngSwitchDefault>: N/A </div>
+                </div>
+              </div>
+              <div class='row'>
+                <div class='col-sm-6'>
+                  Is active
+                </div>
+                <div class='col-sm-6'>
+                  : {{employee.is_active}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class='card-footer'>
+        <button class='btn btn-success' (click)='viewEmployee()'>View</button>
+        <button class='btn btn-primary'(click)='editEmployee()'>Edit</button>
+        <span *ngIf='confirmDelete'>
+          <span>Are you sure you want to delete</span>
+          <button class='btn btn-danger' (click)='deleteEmployee()'>yes</button>
+          <button class='btn btn-primary' (click)='confirmDelete=false'>no</button>
+        </span>
+        <button *ngIf='!confirmDelete' class='btn btn-danger' (click)='confirmDelete=true'>Delete</button>
+      </div>
+  </div>
+

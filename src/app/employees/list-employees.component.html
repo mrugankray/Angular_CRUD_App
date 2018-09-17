@@ -1,0 +1,14 @@
+<!--<div class = 'card card-primary' *ngFor="let employee of employees">
+  <app-display-employee [employee]='employee'></app-display-employee>
+</div>-->
+<!--<button (click)='nextEmployee()' class='btn btn-success'>Next</button>-->
+<div class='container'>
+  <div class='form-group'>
+    <input class='form-control' type='text' [(ngModel)]="searchText" placeholder='Search....'>
+  </div>
+  <h3 *ngIf="valFromChild">{{valFromChild.name + ' ' +valFromChild.gender}}</h3>
+  <div *ngFor="let employee of filteredEmployee">
+      <app-display-employee [employee]='employee' [searchText]='searchText'
+      (notify)=valFromChildFunc($event) (notifyDelete)='onDeleteNotification($event)'></app-display-employee>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+.imageClass{
+  width:200px;
+  height:200px;
+}
+.vertical-allign{
+  display: flex;
+  align-items: center;
+}
+changeHeaderColor {
+  background-color: #428bca;
+}
+.btn {
+  width: 70px;
+  margin: auto 3px;
+}
